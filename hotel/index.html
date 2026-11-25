@@ -336,7 +336,7 @@ function svgPlan(opt) {
       s += `<text x="${X(21.6)}" y="${Y(46)}" text-anchor="middle" font-size="12">N ↑</text></g>`;
       return s;
     };
-    const dims = i === 1 ? [[2, 8, 18, 8, '16,00', 1.2], [18, 8, 18, 25, '17,00', 1.0]] : [];
+    const dims = i === 1 ? [[2, 8, 18, 8, '16,00', -1.3], [18, 8, 18, 25, '17,00', 1.0]] : [];
     document.getElementById('plan').innerHTML = svgPlan({ x0: -3, y0: -4, x1: 23, y1: 48, S: 16, M: 6, rooms: L.rooms, extra, dims, label: 'Plan ' + L.name, minFs: 6.5, maxFs: 10, minArea: 4 });
     const rows = L.rooms.filter(r => r[5] !== 'w' && r[0]);
     const groups = {};

@@ -310,12 +310,12 @@ const LV = [
     ...placeVilla(VT.suite, true, 21.5, 'Villa 3'), ...placeVilla(VT.suite, false, 21.5, 'Villa 4'),
     ['Deck lagune', 0, 32.5, 20, 39.7, 'x'], ['Piscine à débordement', 3, 35.4, 15, 38.6, 'w'], ['Bale bar', 15.3, 32.7, 20, 37.7, 'x'],
     ['Ponton', 9, 39.7, 11, 46.5, 'x'],
-  ], tags: [[4.2, 13.1, 'VILLA 1 · DUPLEX'], [15.8, 13.1, 'VILLA 2 · DUPLEX'], [4.2, 25.1, 'VILLA 3 · SUITE'], [15.8, 25.1, 'VILLA 4 · SUITE']] },
+  ], tags: [[8.2, 14.5, 'VILLA 1 · DUPLEX'], [11.8, 14.5, 'VILLA 2 · DUPLEX'], [8.2, 26.5, 'VILLA 3 · SUITE'], [11.8, 26.5, 'VILLA 4 · SUITE']] },
   { name: 'Étage', rooms: [
     ...placeVilla(VT.duEt, true, 9.5, 'Villa 1'), ...placeVilla(VT.duEt, false, 9.5, 'Villa 2'),
     ['Toiture', .9 - 1, 21.5 - 1, 7.5 + 1, 21.5 + 9.4, 'r'], ['Toiture', 12.5 - 1, 21.5 - 1, 19.1 + 1, 21.5 + 9.4, 'r'],
     ['Toiture accueil', 10.6, -.3, 20.3, 7.2, 'r'],
-  ], tags: [[4.2, 13.1, 'VILLA 1 · ÉTAGE'], [15.8, 13.1, 'VILLA 2 · ÉTAGE']] },
+  ], tags: [[8.2, 14.5, 'VILLA 1 · ÉTAGE'], [11.8, 14.5, 'VILLA 2 · ÉTAGE']] },
 ];
 /* plans détaillés : mobilier et baies */
 const FURN = {
@@ -382,7 +382,7 @@ function svgPlan(opt) {
         s += `<defs><marker id="ar" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="var(--accent)"/></marker></defs>`;
         for (const [y, l] of [[9.5, 1], [21.5, 1]]) for (const wx of [8.9, 11.1]) s += `<line x1="${X(wx)}" y1="${Y(y + 1.2)}" x2="${X(wx)}" y2="${Y(y + 2.6)}" stroke="var(--teak)" stroke-width="4"/>`;
       }
-      for (const [x, y, txt] of (L.tags || [])) s += `<text x="${X(x)}" y="${Y(y)}" text-anchor="middle" font-size="10" letter-spacing="1.5" font-weight="600" fill="var(--accent)">${txt}</text>`;
+      for (const [x, y, txt] of (L.tags || [])) s += `<text x="${X(x)}" y="${Y(y)}" text-anchor="middle" font-size="9" letter-spacing="1.2" font-weight="600" fill="var(--accent)" transform="rotate(-90 ${X(x)} ${Y(y)})">${txt}</text>`;
       s += `<g font-family="IBM Plex Mono, monospace" font-size="10" fill="var(--muted)"><text x="${X(10)}" y="${Y(-2.4)}" text-anchor="middle" letter-spacing="2">RUE</text>`;
       s += `<line x1="${X(0)}" y1="${Y(-3.3)}" x2="${X(20)}" y2="${Y(-3.3)}" stroke="var(--muted)"/><text x="${X(15.5)}" y="${Y(-3.3) - 4}" text-anchor="middle">20,00 m</text>`;
       s += `<line x1="${X(-1.6)}" y1="${Y(0)}" x2="${X(-1.6)}" y2="${Y(40)}" stroke="var(--muted)"/><text x="${X(-1.6) - 5}" y="${Y(20)}" text-anchor="middle" transform="rotate(-90 ${X(-1.6) - 5} ${Y(20)})">40,00 m</text>`;
